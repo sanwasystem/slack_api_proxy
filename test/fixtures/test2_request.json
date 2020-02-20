@@ -1,0 +1,114 @@
+{
+    "resource": "/slack/file",
+    "path": "/slack/file",
+    "httpMethod": "POST",
+    "headers": {
+        "Accept": "*/*",
+        "CloudFront-Forwarded-Proto": "https",
+        "CloudFront-Is-Desktop-Viewer": "true",
+        "CloudFront-Is-Mobile-Viewer": "false",
+        "CloudFront-Is-SmartTV-Viewer": "false",
+        "CloudFront-Is-Tablet-Viewer": "false",
+        "CloudFront-Viewer-Country": "JP",
+        "content-type": "multipart/form-data; boundary=------------------------f2dfa9ad527edb93",
+        "Host": "xxxxxxxxxx.execute-api.ap-northeast-1.amazonaws.com",
+        "User-Agent": "curl/7.58.0",
+        "Via": "2.0 54558f1ba2fbaa6c68f170988ac3d48a.cloudfront.net (CloudFront)",
+        "X-Amz-Cf-Id": "guxXKHtsCtAlyMt7dmHdkrRE7xW9HRGYoYDO1vNkQJSqNtQS8fzcOw==",
+        "X-Amzn-Trace-Id": "Root=1-5e4cb2c9-856efbd052db186842a427e0",
+        "x-api-key": "XXXX_MY_API_KEY_XXXX",
+        "X-Forwarded-For": "203.0.113.1, 130.176.3.154",
+        "X-Forwarded-Port": "443",
+        "X-Forwarded-Proto": "https"
+    },
+    "multiValueHeaders": {
+        "Accept": [
+            "*/*"
+        ],
+        "CloudFront-Forwarded-Proto": [
+            "https"
+        ],
+        "CloudFront-Is-Desktop-Viewer": [
+            "true"
+        ],
+        "CloudFront-Is-Mobile-Viewer": [
+            "false"
+        ],
+        "CloudFront-Is-SmartTV-Viewer": [
+            "false"
+        ],
+        "CloudFront-Is-Tablet-Viewer": [
+            "false"
+        ],
+        "CloudFront-Viewer-Country": [
+            "JP"
+        ],
+        "content-type": [
+            "multipart/form-data; boundary=------------------------f2dfa9ad527edb93"
+        ],
+        "Host": [
+            "xxxxxxxxxx.execute-api.ap-northeast-1.amazonaws.com"
+        ],
+        "User-Agent": [
+            "curl/7.58.0"
+        ],
+        "Via": [
+            "2.0 54558f1ba2fbaa6c68f170988ac3d48a.cloudfront.net (CloudFront)"
+        ],
+        "X-Amz-Cf-Id": [
+            "guxXKHtsCtAlyMt7dmHdkrRE7xW9HRGYoYDO1vNkQJSqNtQS8fzcOw=="
+        ],
+        "X-Amzn-Trace-Id": [
+            "Root=1-5e4cb2c9-856efbd052db186842a427e0"
+        ],
+        "x-api-key": [
+            "XXXX_MY_API_KEY_XXXX"
+        ],
+        "X-Forwarded-For": [
+            "203.0.113.1, 130.176.3.154"
+        ],
+        "X-Forwarded-Port": [
+            "443"
+        ],
+        "X-Forwarded-Proto": [
+            "https"
+        ]
+    },
+    "queryStringParameters": null,
+    "multiValueQueryStringParameters": null,
+    "pathParameters": null,
+    "stageVariables": null,
+    "requestContext": {
+        "resourceId": "mf18wc",
+        "resourcePath": "/slack/file",
+        "httpMethod": "POST",
+        "extendedRequestId": "IIDfkFsxtjMFjzw=",
+        "requestTime": "19/Feb/2020:04:00:09 +0000",
+        "path": "/beta/slack/file",
+        "accountId": "319772457960",
+        "protocol": "HTTP/1.1",
+        "stage": "beta",
+        "domainPrefix": "xxxxxxxxxx",
+        "requestTimeEpoch": 1582084809975,
+        "requestId": "fec7d6c1-0825-4302-8484-64d7f4cb36ef",
+        "identity": {
+            "cognitoIdentityPoolId": null,
+            "cognitoIdentityId": null,
+            "apiKey": "XXXX_MY_API_KEY_XXXX",
+            "principalOrgId": null,
+            "cognitoAuthenticationType": null,
+            "userArn": null,
+            "userAgent": "curl/7.58.0",
+            "accountId": null,
+            "caller": null,
+            "sourceIp": "203.0.113.1",
+            "accessKey": null,
+            "cognitoAuthenticationProvider": null,
+            "user": null
+        },
+        "domainName": "xxxxxxxxxx.execute-api.ap-northeast-1.amazonaws.com",
+        "apiId": "xxxxxxxxxx"
+    },
+    "body": "LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1mMmRmYTlhZDUyN2VkYjkzDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9ImZpbGVuYW1lIg0KDQpiaW5hcnl0ZXN0Ljd6DQotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLWYyZGZhOWFkNTI3ZWRiOTMNCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0iY2hhbm5lbCINCg0KQHVzZXJuYW1lDQotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLWYyZGZhOWFkNTI3ZWRiOTMNCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0iZmlsZSI7IGZpbGVuYW1lPSJiaW5hcnkuN3oiDQpDb250ZW50LVR5cGU6IGFwcGxpY2F0aW9uL29jdGV0LXN0cmVhbQ0KDQo3eryvJxwABPzAkL5YAAAAAAAAAFoAAAAAAAAAX6Xr7QEAUyMgc2xhY2tfYXBpX3Byb3h5ClNsYWNr44GuSW5jb21pbmcgV2ViaG9vaywgRmlsZSB1cGxvYWQgQVBJ44KS44Op44OD44OX44GZ44KLTGFtYmRhCgABBAYAAQlYAAcLAQABISEBAAxUAAgKAYmD7HAAAAUBGQwAAAAAAAAAAAAAAAARFQBSAEUAQQBEAE0ARQAuAG0AZAAAABQKAQCA6Ps46d/VARUGAQAgAAAAAAANCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tZjJkZmE5YWQ1MjdlZGI5My0tDQo=",
+    "isBase64Encoded": true
+}
