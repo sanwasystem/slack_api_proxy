@@ -1,3 +1,6 @@
+// slack api proxy v1.0.0
+// https://github.com/sanwasystem/slack_api_proxy
+
 /* eslint-disable @typescript-eslint/camelcase */
 import * as LambdaTypes from "aws-lambda";
 import * as util from "./util";
