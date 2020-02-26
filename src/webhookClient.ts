@@ -1,6 +1,10 @@
 import * as https from "https";
 
 export const postMessage = async (url: string, payload: object): Promise<string> => {
+  if (!url.startsWith("https://hooks.slack.com")) {
+    throw new Error("malformed webhook url");
+  }
+
   return new Promise<string>((resolve, reject) => {
     const req = https.request(
       {

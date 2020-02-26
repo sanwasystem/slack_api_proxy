@@ -1,0 +1,6 @@
+{
+    "channel": "bot-test",
+    "mode": "snippet",
+    "filename": "MyText.txt",
+    "text": "HELLO, WORLD!"
+}

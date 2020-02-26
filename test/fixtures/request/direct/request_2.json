@@ -1,0 +1,16 @@
+{
+  "channel": "bot-test",
+  "username": "MyBOT",
+  "text": {
+    "text": "HELLO WORLD!",
+    "attachments": [
+      {
+        "color": "#00FF00",
+        "fields": [
+          { "title": "Aisatsu1", "value": "Nya! Nya! Nya!" },
+          { "title": "Aisatsu2", "value": "Wan! Wan! Wan!" }
+        ]
+      }
+    ]
+  }
+}

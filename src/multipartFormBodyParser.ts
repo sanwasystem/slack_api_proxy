@@ -79,6 +79,26 @@ const extentionContentTypeMap: { [name: string]: string } = {
   "7z": "application/x-7z-compressed"
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const isFile = (arg: any): arg is File => {
+  if (arg === null || typeof arg !== "object") {
+    return false;
+  }
+  if (arg.fileName === undefined && typeof arg.fileName !== "string") {
+    return false;
+  }
+  if (arg.encoding === undefined && typeof arg.encoding !== "string") {
+    return false;
+  }
+  if (arg.contentType === undefined && typeof arg.contentType !== "string") {
+    return false;
+  }
+  if (Buffer.isBuffer(arg.buffer)) {
+    return false;
+  }
+  return true;
+};
+
 export type File = {
   fileName: string;
   encoding: string;

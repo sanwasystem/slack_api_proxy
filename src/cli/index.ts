@@ -2,15 +2,12 @@
 const myModule = require("../index");
 
 (async () => {
-  myModule.handler(
-    {
-      channel: "bot-test",
-      text: "HELLO, HAPPY WORLD!",
-      name: "MySlackBot",
-      icon: "nico"
-    },
-    {}
-  );
+  const event = {
+    channel: "bot-test",
+    text: "HELLO WORLD!"
+  };
+
+  myModule.handler(event, {});
 
   console.log("OK");
 })();

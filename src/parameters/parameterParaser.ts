@@ -9,7 +9,7 @@ export type RawParseResult = {
   channel: string;
   username: string;
   icon: string;
-  text: string | parser.File | undefined;
+  text: string | parser.File | Types._IncomingWebhookSendArguments | undefined;
   file: parser.File | undefined;
   filename: string | undefined;
   mode: string | undefined;
@@ -25,7 +25,8 @@ export const parsePost = async (event: LambdaTypes.APIGatewayEvent): Promise<Raw
 
   const channel = parser.getString(multiPart, "channel") ?? env.defaultChannel;
   const username = parser.getString(multiPart, "name") ?? parser.getString(multiPart, "username") ?? env.defaultName;
-  const icon = parser.getString(multiPart, "icon") ?? parser.getString(multiPart, "user_icon") ?? env.defaultIcon;
+  const _icon = parser.getString(multiPart, "icon") ?? parser.getString(multiPart, "user_icon") ?? env.defaultIcon;
+  const icon = util.wrapWithColon(_icon);
   const textStr = parser.getString(multiPart, "text");
   const textFile = parser.getFile(multiPart, "text");
   const text = textStr ?? textFile;
@@ -42,7 +43,8 @@ export const parseGet = (event: LambdaTypes.APIGatewayEvent): RawParseResult => 
 
   const channel = event.queryStringParameters?.channel ?? env.defaultChannel;
   const username = event.queryStringParameters?.name ?? event.queryStringParameters?.username ?? env.defaultName;
-  const icon = event.queryStringParameters?.icon ?? event.queryStringParameters?.user_icon ?? env.defaultIcon;
+  const _icon = event.queryStringParameters?.icon ?? event.queryStringParameters?.user_icon ?? env.defaultIcon;
+  const icon = util.wrapWithColon(_icon);
   const text = event.queryStringParameters?.text;
   const file = undefined;
   const filename = event.queryStringParameters?.filename;
@@ -73,7 +75,7 @@ export const parseDirect = (event: any): RawParseResult => {
   return {
     channel: event.channel ?? env.defaultChannel,
     username: event.name ?? event.username ?? env.defaultName,
-    icon: event.icon ?? event.user_icon ?? env.defaultIcon,
+    icon: util.wrapWithColon(event.icon ?? event.user_icon ?? env.defaultIcon),
     text: event.text,
     file: file,
     filename: event.filename,

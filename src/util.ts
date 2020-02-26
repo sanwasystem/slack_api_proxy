@@ -51,3 +51,7 @@ export const wrapWithColon = (str: string): string => {
   }
   return str;
 };
+
+export const neverComesHere = (arg: never): never => {
+  throw new Error(arg);
+};
