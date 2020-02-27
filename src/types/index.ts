@@ -33,6 +33,11 @@ export const isIncomingWebhookSendArguments = (arg: any): arg is _IncomingWebhoo
     return false;
   }
 
+  // これだと空のオブジェクトや File を誤認してしまうのでこのチェックも加える
+  if (Buffer.isBuffer(arg.buffer)) {
+    return false;
+  }
+
   return true;
 };
 

@@ -1,0 +1,9 @@
+{
+  "text": "Alert mail detected",
+  "attachments": [
+    {
+      "color": "#FF0000",
+      "fields": [{ "title": "something wrong", "value": "something failed.\nsomething failed.\nsomething failed." }]
+    }
+  ]
+}

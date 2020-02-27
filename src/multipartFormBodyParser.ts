@@ -93,7 +93,7 @@ export const isFile = (arg: any): arg is File => {
   if (arg.contentType === undefined && typeof arg.contentType !== "string") {
     return false;
   }
-  if (Buffer.isBuffer(arg.buffer)) {
+  if (!Buffer.isBuffer(arg.buffer)) {
     return false;
   }
   return true;
