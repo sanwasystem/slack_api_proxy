@@ -1,4 +1,4 @@
-// slack api proxy v1.0.0
+// slack api proxy v1.0.1
 // https://github.com/sanwasystem/slack_api_proxy
 
 import * as LambdaTypes from "aws-lambda";
