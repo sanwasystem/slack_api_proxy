@@ -33,7 +33,19 @@ export const isIncomingWebhookSendArguments = (arg: any): arg is _IncomingWebhoo
     return false;
   }
 
-  // これだと空のオブジェクトや File を誤認してしまうのでこのチェックも加える
+  // 空のオブジェクトを誤認してしまうのでプロパティが一つもなければfalseを返す
+  if (
+    arg.text === undefined &&
+    arg.link_names == undefined &&
+    arg.attachments == undefined &&
+    arg.blocks == undefined &&
+    arg.unfurl_links == undefined &&
+    arg.unfurl_media == undefined
+  ) {
+    return false;
+  }
+
+  // File を誤認してしまわないようにこのチェックも加える
   if (Buffer.isBuffer(arg.buffer)) {
     return false;
   }

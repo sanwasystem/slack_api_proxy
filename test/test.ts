@@ -5,7 +5,6 @@ import * as fs from "fs";
 import * as formParser from "../src/multipartFormBodyParser";
 import * as reqParser from "../src/parameters";
 import * as util from "../src/util";
-import * as Types from "../src/types";
 
 const loadJson = <T>(filename: string): T => {
   const rawJson = JSON.parse(fs.readFileSync("test/fixtures/" + filename).toString("utf-8"));
@@ -131,9 +130,45 @@ describe("request parser", () => {
   });
 
   describe("via API Gateway / GET", () => {
-    it("simple text", async () => {});
-    it("compex text", async () => {});
-    it("snippet", async () => {});
+    it("simple text", async () => {
+      //  curl -G -H 'x-api-key:XXXX_MY_API_KEY_XXXX' -d 'text=HELLO%20WORLD&channel=bot-test&name=MyCatBot&user_icon=cat' https://...
+      const req = loadJson("request/get/request_1.json");
+      const result = await reqParser.parse(req);
+      assertTextMode(result);
+      assert.equal(result.channel, "bot-test");
+      assert.equal(result.icon, ":cat:");
+      assert.equal(result.username, "MyCatBot");
+      assert.deepEqual(result.message, "HELLO WORLD");
+    });
+
+    it("compex text", async () => {
+      // curl -G -H 'x-api-key:XXXX_MY_API_KEY_XXXX' -d 'mode=json&channel=bot-test&username=MyCatBot&
+      // icon=cat&text=%7B%22text%22%3A%20%22Nya-%22%2C%22attachments%22%3A%20%5B%7B%22color%22%3A%20%
+      // 22%23D00000%22%2C%22fields%22%3A%20%5B%7B%22title%22%3A%20%22Aisatsu%22%2C%22value%22%3A%20%2
+      // 2Nya!%20Nya!%20Nya!%22%7D%5D%7D%5D%7D' https://...
+      const req = loadJson("request/get/request_2.json");
+      const result = await reqParser.parse(req);
+      const messageRaw =
+        "%7B%22text%22%3A%20%22Nya-%22%2C%22attachments%22%3A%20%5B%7B%22color%22%3A%20%" +
+        "22%23D00000%22%2C%22fields%22%3A%20%5B%7B%22title%22%3A%20%22Aisatsu%22%2C%22value%22%3A%20%2" +
+        "2Nya!%20Nya!%20Nya!%22%7D%5D%7D%5D%7D";
+      const message = JSON.parse(decodeURIComponent(messageRaw));
+      assertTextMode(result);
+      assert.equal(result.channel, "bot-test");
+      assert.equal(result.icon, ":cat:");
+      assert.equal(result.username, "MyCatBot");
+      assert.deepEqual(result.message, message);
+    });
+
+    it("snippet", async () => {
+      // curl -G -H 'x-api-key:XXXX_MY_API_KEY_XXXX' -d 'text=HELLO%20WORLD&channel=bot-test&mode=snippet' https://...
+      const req = loadJson("request/get/request_3.json");
+      const snippet = Buffer.from("HELLO WORLD", "utf-8");
+      const result = await reqParser.parse(req);
+      assertFileMode(result);
+      assert.equal(result.channel, "bot-test");
+      assert.equal(result.buffer.toString("base64"), snippet.toString("base64"));
+    });
   });
 
   describe("via API Gateway / POST", () => {
@@ -192,9 +227,17 @@ describe("request parser", () => {
       assert.deepStrictEqual(result.message, message);
     });
 
-    it("binary file", async () => {});
-
-    it("snippet (from text file)", async () => {});
+    it("binary file", async () => {
+      // curl -X POST -H 'x-api-key:XXXX_MY_API_KEY_XXXX' -F 'filename=binary.7z' -F "channel=bot-test"
+      // -F "file=@test/fixtures/request/post/request_5.7z" https://...
+      const req = loadJson("request/post/request_5.json");
+      const result = await reqParser.parse(req);
+      const file = loadFile("request/post/request_5.7z");
+      assertFileMode(result);
+      assert.equal(result.channel, "bot-test");
+      assert.equal(result.filename, "binary.7z");
+      assert.equal(result.buffer.toString("base64"), file.toString("base64"));
+    });
   });
 });
 

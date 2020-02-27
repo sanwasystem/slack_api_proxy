@@ -1,0 +1,132 @@
+{
+    "resource": "/slack",
+    "path": "/slack",
+    "httpMethod": "GET",
+    "headers": {
+        "Accept": "*/*",
+        "CloudFront-Forwarded-Proto": "https",
+        "CloudFront-Is-Desktop-Viewer": "true",
+        "CloudFront-Is-Mobile-Viewer": "false",
+        "CloudFront-Is-SmartTV-Viewer": "false",
+        "CloudFront-Is-Tablet-Viewer": "false",
+        "CloudFront-Viewer-Country": "JP",
+        "Host": "xxxxxxxxxx.execute-api.ap-northeast-1.amazonaws.com",
+        "User-Agent": "curl/7.58.0",
+        "Via": "2.0 174ba2b7341fa54ff0e5da2d0fb24323.cloudfront.net (CloudFront)",
+        "X-Amz-Cf-Id": "Vf3iL0Q9ywnOuexrn4Tm2NyCNbjdE8mikQSLkB3egbTu7kTLyXpK-A==",
+        "X-Amzn-Trace-Id": "Root=1-5e574dfb-1bc516b96d847d0aec23701b",
+        "x-api-key": "XXXX_MY_API_KEY_XXXX",
+        "X-Forwarded-For": "203.0.113.1, 130.176.3.81",
+        "X-Forwarded-Port": "443",
+        "X-Forwarded-Proto": "https"
+    },
+    "multiValueHeaders": {
+        "Accept": [
+            "*/*"
+        ],
+        "CloudFront-Forwarded-Proto": [
+            "https"
+        ],
+        "CloudFront-Is-Desktop-Viewer": [
+            "true"
+        ],
+        "CloudFront-Is-Mobile-Viewer": [
+            "false"
+        ],
+        "CloudFront-Is-SmartTV-Viewer": [
+            "false"
+        ],
+        "CloudFront-Is-Tablet-Viewer": [
+            "false"
+        ],
+        "CloudFront-Viewer-Country": [
+            "JP"
+        ],
+        "Host": [
+            "xxxxxxxxxx.execute-api.ap-northeast-1.amazonaws.com"
+        ],
+        "User-Agent": [
+            "curl/7.58.0"
+        ],
+        "Via": [
+            "2.0 174ba2b7341fa54ff0e5da2d0fb24323.cloudfront.net (CloudFront)"
+        ],
+        "X-Amz-Cf-Id": [
+            "Vf3iL0Q9ywnOuexrn4Tm2NyCNbjdE8mikQSLkB3egbTu7kTLyXpK-A=="
+        ],
+        "X-Amzn-Trace-Id": [
+            "Root=1-5e574dfb-1bc516b96d847d0aec23701b"
+        ],
+        "x-api-key": [
+            "XXXX_MY_API_KEY_XXXX"
+        ],
+        "X-Forwarded-For": [
+            "203.0.113.1, 130.176.3.81"
+        ],
+        "X-Forwarded-Port": [
+            "443"
+        ],
+        "X-Forwarded-Proto": [
+            "https"
+        ]
+    },
+    "queryStringParameters": {
+        "channel": "bot-test",
+        "icon": "cat",
+        "mode": "json",
+        "text": "{\"text\": \"Nya-\",\"attachments\": [{\"color\": \"#D00000\",\"fields\": [{\"title\": \"Aisatsu\",\"value\": \"Nya! Nya! Nya!\"}]}]}",
+        "username": "MyCatBot"
+    },
+    "multiValueQueryStringParameters": {
+        "channel": [
+            "bot-test"
+        ],
+        "icon": [
+            "cat"
+        ],
+        "mode": [
+            "json"
+        ],
+        "text": [
+            "{\"text\": \"Nya-\",\"attachments\": [{\"color\": \"#D00000\",\"fields\": [{\"title\": \"Aisatsu\",\"value\": \"Nya! Nya! Nya!\"}]}]}"
+        ],
+        "username": [
+            "MyCatBot"
+        ]
+    },
+    "pathParameters": null,
+    "stageVariables": null,
+    "requestContext": {
+        "resourceId": "rnqkem",
+        "resourcePath": "/slack",
+        "httpMethod": "GET",
+        "extendedRequestId": "IikfSHB7tjMFq4Q=",
+        "requestTime": "27/Feb/2020:05:04:59 +0000",
+        "path": "/beta/slack",
+        "accountId": "319772457960",
+        "protocol": "HTTP/1.1",
+        "stage": "beta",
+        "domainPrefix": "xxxxxxxxxx",
+        "requestTimeEpoch": 1582779899342,
+        "requestId": "7a54db22-f3e7-4611-90e2-e0d3d4e9b810",
+        "identity": {
+            "cognitoIdentityPoolId": null,
+            "cognitoIdentityId": null,
+            "apiKey": "XXXX_MY_API_KEY_XXXX",
+            "principalOrgId": null,
+            "cognitoAuthenticationType": null,
+            "userArn": null,
+            "userAgent": "curl/7.58.0",
+            "accountId": null,
+            "caller": null,
+            "sourceIp": "203.0.113.1",
+            "accessKey": null,
+            "cognitoAuthenticationProvider": null,
+            "user": null
+        },
+        "domainName": "xxxxxxxxxx.execute-api.ap-northeast-1.amazonaws.com",
+        "apiId": "xxxxxxxxxx"
+    },
+    "body": null,
+    "isBase64Encoded": false
+}
